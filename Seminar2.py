@@ -1,16 +1,14 @@
-import random
+from math import sqrt
 
-def task1(n):
-    coins = [];
-    eagleCount = 0
-    tailsCount = 0
-    for i in range(n):
-        coins.append(random.randint(0,1))
-        if coins[i] == 0:
-            eagleCount+=1
-        else:
-            tailsCount+=1
-    return min(eagleCount, tailsCount)
+def calc(sum, mul):
+    d = sum * sum + 4 * mul
+    if d > 0:
+        sq = sqrt(d)/2
+        p = sum/2
+        x1 = p - sq
+        x2 = p + sq
+        return [x1,x2]
 
-n = int(input("Input count of coins\n"))
-print(f"You need to turn over {task1(n)} coins")
+S = int(input("Input sum:\n"))
+P = -int(input("Input mul:\n"))
+print(calc(S,P))
