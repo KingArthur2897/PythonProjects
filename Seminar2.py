@@ -1,9 +1,7 @@
-n = int(input("Input limit of powers of two\n"))
+from decimal import Decimal
 
-def powers(limit):
-    t = 2
-    while t <= limit:
-        print(t)
-        t*=2
+num = Decimal(input("Input number:\n"))
 
-powers(n)
+digits = num.as_tuple().digits
+
+print(sum(digits))
